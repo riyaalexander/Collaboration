@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+// Components
+import Footer from "./components/common/Footer";
+import Home from "./components/home/Home";
+import Nav from "./components/common/Nav";
+import Show from "./components/shows/Show";
+import ShowsEditForm from "./components/shows/ShowsEditForm";
+import ShowsIndex from "./components/shows/ShowsIndex";
+import ShowsNewForm from "./components/shows/ShowsNewForm";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrapper">
+      <Router>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/shows" element={<ShowsIndex />} />
+          <Route path="/shows/new" element={<ShowsNewForm />} />
+          <Route path="/shows/:id" element={<Show />} />
+          <Route path="/shows/:id/edit" element={<ShowsEditForm />} />
+        </Routes>
+        <Footer />
+      </Router>
     </div>
   );
 }
