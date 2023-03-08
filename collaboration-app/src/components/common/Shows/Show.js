@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, Link, useParams } from "react-router-dom";
-import { destroyShow, getOneShow } from "../../api/fetch";
+import { destroyShow, getOneShow } from "../../../api/fetch";
 
 import "./Show.css";
 
